@@ -1,0 +1,55 @@
+@using TradingSimulator.Market.Common.Models
+
+<div class="market-snapshot-widget">
+    @if (_formattedSnapshot.Entries.Length.Equals(0))
+    {
+        <div class="alert alert-info" role="alert">
+            The snapshot contains no market entries.
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Ticker</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">ISIN</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Company</th>
+                            <th scope="col">LEI</th>
+                            <th scope="col" class="text-end">Last</th>
+                            <th scope="col" class="text-end">Bid</th>
+                            <th scope="col" class="text-end">Ask</th>
+                            <th scope="col" class="text-end">Delta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (MarketSnapshotEntry entry in _formattedSnapshot.Entries)
+                        {
+                            <tr>
+                                <td class="fw-semibold">@entry.Ticker</td>
+                                <td>@entry.Name</td>
+                                <td class="small text-muted">@entry.Isin</td>
+                                <td><span class="badge text-bg-light text-dark border">@entry.Type</span></td>
+                                <td>@entry.CompanyName</td>
+                                <td class="small text-muted">@entry.Lei</td>
+                                <td class="text-end fw-semibold">@FormatCurrency(entry.Quote.LastPrice)</td>
+                                <td class="text-end">@FormatCurrency(entry.Quote.Bid)</td>
+                                <td class="text-end">@FormatCurrency(entry.Quote.Ask)</td>
+                                <td class="text-end">@FormatCurrency(entry.Quote.Bid - entry.Quote.Ask)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+
+</div>
+
+@code {
+
+}

@@ -1,0 +1,116 @@
+.dropdown-picker-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-picker-label {
+    margin: 0;
+    white-space: nowrap;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #212529;
+}
+
+.dropdown-picker {
+    position: relative;
+    display: inline-block;
+    min-width: 220px;
+}
+
+/* ── Trigger ── */
+
+.dropdown-picker-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #212529;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.dropdown-picker-trigger:hover {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.dropdown-picker-trigger:focus-visible {
+    outline: 0;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.dropdown-picker-trigger-content {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropdown-picker-placeholder {
+    color: #6c757d;
+}
+
+/* ── Chevron ── */
+
+.dropdown-picker-chevron {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: #6c757d;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-picker-chevron.open {
+    transform: rotate(180deg);
+}
+
+/* ── Backdrop ── */
+
+.dropdown-picker-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1040;
+}
+
+/* ── Menu ── */
+
+.dropdown-picker-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 1041;
+    max-height: 320px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 4px 0;
+}
+
+/* ── Item ── */
+
+.dropdown-picker-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.dropdown-picker-item:hover {
+    background-color: #f1f3f5;
+}
+
+.dropdown-picker-item.selected {
+    background-color: #e7f1ff;
+    font-weight: 600;
+}

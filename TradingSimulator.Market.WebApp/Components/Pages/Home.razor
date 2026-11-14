@@ -1,0 +1,12 @@
+﻿@page "/"
+@using TradingSimulator.Market.WebApp.Components.Widgets
+
+<PageTitle>TradingSimulator</PageTitle>
+
+<DropdownPickerWidget T="int" Entries="_simulationTickInMsIntervals" Label="Simulation Tick Interval in ms" Placeholder="Select the interval" OnSelectionChanged="SimulationTickValueChangedHandler">
+    <DropdownPickerEntryTemplate Context="interval">
+        <span>@FormatTickInterval(interval)</span>
+    </DropdownPickerEntryTemplate>
+</DropdownPickerWidget>
+
+<MarketSnapshotWidget Snapshot="_appManager.MarketPlace.Snapshot" Summarized="true"/>

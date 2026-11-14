@@ -1,0 +1,52 @@
+@typeparam T
+
+<div class="dropdown-picker-container">
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label class="dropdown-picker-label">@Label:</label>
+    }
+    
+    <div class="dropdown-picker" @onclick:stopPropagation>
+
+        <!-- Trigger -->
+        <button type="button" class="dropdown-picker-trigger" aria-expanded="@_isOpen" aria-haspopup="listbox"
+                @onclick="ToggleDropdown">
+
+            <span class="dropdown-picker-trigger-content">
+                @if (_selected is not null)
+                {
+                    @DropdownPickerEntryTemplate(_selected)
+                }
+                else
+                {
+                    <span class="dropdown-picker-placeholder">@Placeholder</span>
+                }
+            </span>
+
+            <span class="dropdown-picker-chevron @(_isOpen ? "open" : "")">&#9662</span>
+        </button>
+
+        <!-- Backdrop (click-outside-to-close) -->
+        @if (_isOpen)
+        {
+            <div class="dropdown-picker-backdrop" @onclick="CloseDropdown"></div>
+        }
+
+        <!-- Dropdown list -->
+        @if (_isOpen)
+        {
+            <div class="dropdown-picker-menu" role="listbox">
+                @foreach (T entry in Entries)
+                {
+                    bool isSelected = _selected is not null && EqualityComparer<T>.Default.Equals(entry, _selected);
+                    <div class="dropdown-picker-item @(isSelected ? "selected" : "")"
+                         role="option"
+                         aria-selected="@isSelected"
+                         @onclick="() => SelectEntry(entry)">
+                        @DropdownPickerEntryTemplate(entry)
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

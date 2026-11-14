@@ -1,0 +1,19 @@
+<Project>
+    <PropertyGroup Label="Package_Information">
+        <TradingSimulatorVersionPrefix>0.1.0</TradingSimulatorVersionPrefix>
+        <TradingSimulatorVersionSuffix></TradingSimulatorVersionSuffix>
+        <TradingSimulatorVersion Condition="'$(TradingSimulatorVersionSuffix)' == ''">$(TradingSimulatorVersionPrefix)</TradingSimulatorVersion>
+        <TradingSimulatorVersion Condition="'$(TradingSimulatorVersionSuffix)' != ''">$(TradingSimulatorVersionPrefix)-$(TradingSimulatorVersionSuffix)</TradingSimulatorVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Package_Managing">
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+        <CentralPackageVersionOverrideEnabled>true</CentralPackageVersionOverrideEnabled>
+    </PropertyGroup>
+
+    <ItemGroup Label="ThirdParty_Dependencies"></ItemGroup>
+    <ItemGroup Label="Release_Dependencies" Condition="'$(Configuration)' == 'Release'"></ItemGroup>
+    <ItemGroup Label="Debug_Dependencies" Condition="'$(Configuration)' == 'Debug'"></ItemGroup>
+    <ItemGroup Label="Misc"></ItemGroup>
+</Project>

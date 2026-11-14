@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="TradingSimulator.Market.Common/TradingSimulator.Market.Common.csproj" />
+  <Project Path="TradingSimulator.Market.Engine/TradingSimulator.Market.Engine.csproj" />
+  <Project Path="TradingSimulator.Market.Service/TradingSimulator.Market.Service.csproj" />
+  <Project Path="TradingSimulator.Market.WebApp/TradingSimulator.Market.WebApp.csproj" />
+  <Project Path="TradingSimulator.POC/TradingSimulator.POC.csproj" />
+</Solution>

@@ -1,0 +1,14 @@
+{
+    "version" :"0.2.0",
+    "configurations" :[
+        {
+            "name" : "Web Debug",
+            "type" : "coreclr",
+            "request" : "launch",
+            "preLaunchTask" : "build_web_debug",
+            "program" : "${workspaceFolder}/TradingSimulator.Market.WebApp/bin/Debug/net10.0/TradingSimulator.Market.WebApp.dll",
+            "cwd" : "${workspaceFolder}",
+            "console" : "integratedTerminal"
+        }
+    ],
+}
